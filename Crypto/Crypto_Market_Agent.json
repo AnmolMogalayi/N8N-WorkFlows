@@ -1,0 +1,848 @@
+{
+  "name": "BTC market analyser",
+  "nodes": [
+    {
+      "parameters": {
+        "content": ""
+      },
+      "id": "9ffb391c-08e6-4f41-90f7-30032c1b79f1",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        240,
+        480
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {},
+      "id": "abdc48f4-d433-4a75-a337-6168fd942335",
+      "name": "Merge",
+      "type": "n8n-nodes-base.merge",
+      "position": [
+        780,
+        1560
+      ],
+      "typeVersion": 3.1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "92f568df-b9fb-4f30-9b59-e0aa6dde450e",
+      "name": "RSS Read - GOOGLE",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "position": [
+        420,
+        880
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "eedfa3dd-ca7a-4039-9ce9-3bcb7e1da093",
+              "leftValue": "",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "dd929c3d-34d6-40a5-9388-fc4381be9ed5",
+      "name": "Filter",
+      "type": "n8n-nodes-base.filter",
+      "position": [
+        1240,
+        1700
+      ],
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "c4aad220-db37-49af-a0e5-cf7d9cd36906",
+      "name": "Google Gemini Chat Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "position": [
+        1640,
+        2020
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {}
+          ]
+        }
+      },
+      "id": "83f65361-8ec6-4b51-8068-22c25491e6e0",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "position": [
+        -1280,
+        2560
+      ],
+      "typeVersion": 1.2
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "2630f6ac-8742-4bf2-bd59-33b7a0efd6da",
+      "name": "RSS Read - Cointelegraph BTC",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "position": [
+        420,
+        1040
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "efb01d81-e63c-4981-98c2-e8ec92ba5159",
+      "name": "RSS Read - Cointelegraph Price Analysis",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "position": [
+        420,
+        1200
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "7df036b1-36d3-4e50-b2ef-683c47bc02fd",
+      "name": "RSS Read - News BTC",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "position": [
+        420,
+        1360
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "c598a2cc-4041-46d5-80da-8574eba7cc0b",
+      "name": "RSS Read - Bitcoinist BTC",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "position": [
+        420,
+        1520
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "f39181c5-b477-4b0a-b4df-5e8f3965314c",
+      "name": "RSS Read - Cryptoslate BTC",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "position": [
+        420,
+        1680
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "953b3a2a-2dc2-4e12-a431-4e7f713ae778",
+      "name": "RSS Read - Crypto News Feed",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "position": [
+        420,
+        1860
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "eb11439e-8e82-4396-b70e-82d6b2b0d7b3",
+      "name": "RSS Read - Crypto Briefing Feed",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "position": [
+        420,
+        2060
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "869fdd9e-c270-4c32-9b87-0ffe925fd9b5",
+      "name": "Date Filter",
+      "type": "n8n-nodes-base.filter",
+      "position": [
+        1000,
+        1700
+      ],
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "849fbaaf-d903-4c73-bf6a-767c20cc5dc0",
+      "name": "RSS Read - Action Forex Market Overview",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "position": [
+        420,
+        2220
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "50512a33-ffb9-4741-9ae1-00ffaa4394e8",
+      "name": "RSS Read - Daily Forex Technical Analysis",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "position": [
+        420,
+        2380
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "e6ac3c32-cccb-4753-8398-0620b1d10993",
+      "name": "BTCUSD News and Sentiment Analyst",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        1720,
+        1700
+      ],
+      "typeVersion": 1.8
+    },
+    {
+      "parameters": {
+        "guildId": {
+          "__rl": true,
+          "mode": "list",
+          "value": ""
+        },
+        "options": {}
+      },
+      "id": "8bc4eb68-bac6-44f8-932a-04e9ccf0ed78",
+      "name": "Discord - Send Message Node",
+      "type": "n8n-nodes-base.discord",
+      "position": [
+        2340,
+        2000
+      ],
+      "webhookId": "ed0dda78-3d3e-421c-b066-8c4a3f95d457",
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "4f10f08f-099b-40c7-9280-05f37cc51bea",
+      "name": "RSS Read - Cointelegraph ETH",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "position": [
+        440,
+        3380
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "d5c02c3f-183e-47bd-97cd-55b456be5c92",
+      "name": "RSS Read - Bitcoinist ETH",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "position": [
+        440,
+        3860
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "6104c36c-00bd-4216-9443-e348246d4909",
+      "name": "RSS Read - NewsBTC - ETH Feed",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "position": [
+        440,
+        3700
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "51b22ffd-cc6b-4fd7-9a5b-75468d8fdecd",
+      "name": "RSS Read - Cryptoslate",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "position": [
+        440,
+        4020
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {},
+      "id": "029e6b25-0ec2-497a-a875-ead8fc5a823b",
+      "name": "Merge1",
+      "type": "n8n-nodes-base.merge",
+      "position": [
+        840,
+        3840
+      ],
+      "typeVersion": 3.1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "a6256087-8af0-470a-9da5-0061d3dd5323",
+      "name": "RSS Read - GOOGLE1",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "position": [
+        440,
+        3220
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "40ccc5a4-e92a-45d1-b1f1-57270e7a8540",
+      "name": "Filter1",
+      "type": "n8n-nodes-base.filter",
+      "position": [
+        1300,
+        3980
+      ],
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "13f16464-653f-4c58-a3d7-a9bc2d4fe4c1",
+      "name": "RSS Read - Cointelegraph Price Analysis1",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "position": [
+        440,
+        3540
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "ffded8cc-d2ae-493d-b023-5467b283044b",
+      "name": "RSS Read - Crypto News Feed1",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "position": [
+        440,
+        4200
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "4c5a8158-bc41-413a-9615-b8ea1e92ac58",
+      "name": "RSS Read - Crypto Briefing Feed1",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "position": [
+        440,
+        4400
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "62dc4bc1-c85d-4e36-a4b5-791e5f8e9e90",
+      "name": "Date Filter1",
+      "type": "n8n-nodes-base.filter",
+      "position": [
+        1020,
+        3980
+      ],
+      "typeVersion": 2.2
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "ce7b8915-6f9c-40b2-ad46-fa5f4cfd369d",
+      "name": "RSS Read - Action Forex Market Overview1",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "position": [
+        440,
+        4560
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "08dc980e-12fb-4f2b-8efa-3b9f0c4db6e5",
+      "name": "RSS Read - Daily Forex Technical Analysis1",
+      "type": "n8n-nodes-base.rssFeedRead",
+      "position": [
+        440,
+        4720
+      ],
+      "typeVersion": 1.1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "651583a9-673c-4db9-907f-c29330ad3a21",
+      "name": "Google Gemini Chat Model1",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "position": [
+        1660,
+        4300
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "88a37238-acca-4fbe-9602-2eeade4b8191",
+      "name": "ETHUSD News and Sentiment Analyst",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "position": [
+        1740,
+        3980
+      ],
+      "typeVersion": 1.8
+    },
+    {
+      "parameters": {
+        "content": ""
+      },
+      "id": "2bebc5d1-484f-4410-b6b2-a2260736e875",
+      "name": "Sticky Note18",
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        -180,
+        340
+      ],
+      "typeVersion": 1
+    },
+    {
+      "parameters": {
+        "additionalFields": {}
+      },
+      "id": "1f2751c2-730b-4fcb-b135-9c6dda647a9e",
+      "name": "Send Message To Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "position": [
+        2300,
+        3740
+      ],
+      "webhookId": "8d4496d1-bfb2-4aa0-a9fc-eef3e5bfc4fb",
+      "typeVersion": 1.2
+    },
+    {
+      "parameters": {
+        "guildId": {
+          "__rl": true,
+          "mode": "list",
+          "value": ""
+        },
+        "options": {}
+      },
+      "id": "cb158832-d147-4bed-b5b6-f15d5ca8342e",
+      "name": "Discord - Send Message",
+      "type": "n8n-nodes-base.discord",
+      "position": [
+        2320,
+        4380
+      ],
+      "webhookId": "ed0dda78-3d3e-421c-b066-8c4a3f95d457",
+      "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "additionalFields": {}
+      },
+      "id": "b1ed98e3-439f-4bbc-9886-9a3101720726",
+      "name": "Send Message To Telegram1",
+      "type": "n8n-nodes-base.telegram",
+      "position": [
+        2320,
+        1360
+      ],
+      "webhookId": "8d4496d1-bfb2-4aa0-a9fc-eef3e5bfc4fb",
+      "typeVersion": 1.2
+    },
+    {
+      "parameters": {},
+      "id": "3bbe79fe-7a44-40e9-9dfe-1b1256690b7a",
+      "name": "Organize Content for GPT",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        1500,
+        3980
+      ],
+      "typeVersion": 2
+    },
+    {
+      "parameters": {},
+      "id": "8dc405c7-c3ea-4985-9410-741e0d4bbb82",
+      "name": "Organize Content For GPT",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        1480,
+        1700
+      ],
+      "typeVersion": 2
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Date Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "Organize Content For GPT",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Date Filter1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter1": {
+      "main": [
+        [
+          {
+            "node": "Organize Content for GPT",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Date Filter": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Date Filter1": {
+      "main": [
+        [
+          {
+            "node": "Filter1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "RSS Read - GOOGLE",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "RSS Read - Cointelegraph BTC",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "RSS Read - Cointelegraph Price Analysis",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "RSS Read - News BTC",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "RSS Read - Bitcoinist BTC",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "RSS Read - Cryptoslate BTC",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "RSS Read - Crypto News Feed",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "RSS Read - Crypto Briefing Feed",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "RSS Read - Action Forex Market Overview",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "RSS Read - Daily Forex Technical Analysis",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "RSS Read - GOOGLE1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "RSS Read - Cointelegraph ETH",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "RSS Read - Cointelegraph Price Analysis1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "RSS Read - NewsBTC - ETH Feed",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "RSS Read - Bitcoinist ETH",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "RSS Read - Cryptoslate",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "RSS Read - Crypto News Feed1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "RSS Read - Crypto Briefing Feed1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "RSS Read - Action Forex Market Overview1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "RSS Read - Daily Forex Technical Analysis1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RSS Read - GOOGLE": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RSS Read - GOOGLE1": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "BTCUSD News and Sentiment Analyst",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Organize Content For GPT": {
+      "main": [
+        [
+          {
+            "node": "BTCUSD News and Sentiment Analyst",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Organize Content for GPT": {
+      "main": [
+        [
+          {
+            "node": "ETHUSD News and Sentiment Analyst",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "ETHUSD News and Sentiment Analyst",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RSS Read - Cointelegraph BTC": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "RSS Read - Cointelegraph ETH": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "BTCUSD News and Sentiment Analyst": {
+      "main": [
+        [
+          {
+            "node": "Send Message To Telegram1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Discord - Send Message Node",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ETHUSD News and Sentiment Analyst": {
+      "main": [
+        [
+          {
+            "node": "Send Message To Telegram",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Discord - Send Message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "22eb64da-9f14-4a1a-846a-03c3b2fedf00",
+  "meta": {
+    "instanceId": "2b6a41432cbea58deb301d00529bdda7b51dccc538da10d43c06de3d60604739"
+  },
+  "id": "ZNxlGruFUfWgPQCu",
+  "tags": []
+}
