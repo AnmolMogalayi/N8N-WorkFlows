@@ -1,66 +1,38 @@
-![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=28&pause=1000&color=2F80ED&background=FFFFFF00&width=800&lines=Anny+%7C+N8N+Workflows;Automation+JSON+Exports)
 
-![Workflows](https://img.shields.io/badge/Workflows-n8n-orange)
-![Files](https://img.shields.io/badge/Files-4-blue)
+# N8N Workflows
 
-## Project Overview
+This repository contains exported n8n workflow definitions and accompanying setup documents. The files are provided as JSON workflow exports and PDF guides. No executable code is included.
 
-This repository contains n8n workflow exports and supporting setup guides used to automate tasks. It is a lightweight collection of JSON workflow definitions and PDFs intended to be imported into an n8n instance or reviewed as configuration artifacts.
-
-**What's included:**
-- `Crypto/` : n8n workflow(s) and a setup guide related to crypto market automation 📈
-- `YT Shorts Generator/` : workflow(s) and a setup guide for generating YouTube Shorts 🎬
-- `assets/` : placeholder for local assets (currently empty)
-
-**Notes:** All workflow definitions are provided as JSON files. The PDF files are setup guides and likely document how to run or configure the workflows.
-
-## Project Structure
+## Repository Structure
 
 ```
 N8N WF/
-├─ assets/                      # local assets (currently empty)
+├─ assets/
 ├─ Crypto/
-│  ├─ Crypto_Market_Agent.json  # n8n workflow (JSON export)
-│  └─ BRODY'S SETUP GUIDE.pdf   # setup/installation guide (PDF)
+│  ├─ Crypto_Market_Agent.json
+│  └─ BRODY'S SETUP GUIDE.pdf
 └─ YT Shorts Generator/
-   ├─ Shorts Generation.json    # n8n workflow (JSON export)
-   └─ Brodyautomates Setup Guide.pdf # setup/installation guide (PDF)
+    ├─ Shorts Generation.json
+    └─ Brodyautomates Setup Guide.pdf
 ```
 
-## How It Works
+## Folder and File Descriptions
 
-- The `.json` files are exported workflow definitions (commonly from n8n). Import these files into an n8n instance to recreate the flows.
-- The PDFs contain setup instructions, credentials guidance, or environment notes required to run these workflows — consult them before importing or executing.
-- Typical import flow:
-  1. Open your n8n instance (cloud or local).
- 2. Go to the Workflow view and choose "Import".
- 3. Upload the corresponding `.json` file (e.g., `Crypto_Market_Agent.json`).
- 4. Review credentials and environment variables referenced by the workflow and configure them in your n8n settings.
+- `assets/` — directory reserved for local assets (currently contains no files).
 
-## Usage Tips
+- `Crypto/`
+   - `Crypto_Market_Agent.json` — exported n8n workflow definition (JSON file).
+   - `BRODY'S SETUP GUIDE.pdf` — PDF document providing setup or configuration information related to the `Crypto` workflow.
 
-- Keep credentials out of the JSON exports; prefer n8n's credential management.
-- Review the PDF setup guides before running any workflow.
-- Version-control the JSON exports when you update flows so you can track changes over time.
+- `YT Shorts Generator/`
+   - `Shorts Generation.json` — exported n8n workflow definition (JSON file).
+   - `Brodyautomates Setup Guide.pdf` — PDF document providing setup or configuration information related to the `YT Shorts Generator` workflow.
 
-## Files of Interest
+## Usage
 
-- `Crypto/Crypto_Market_Agent.json` — crypto market automation workflow (inspect before use).
-- `YT Shorts Generator/Shorts Generation.json` — workflow for YouTube Shorts generation pipeline.
-- PDFs — human-readable setup guides that accompany each workflow.
+The repository hosts n8n workflow export files. To use a workflow, import the corresponding `.json` file into an n8n instance using n8n's workflow import functionality. Review the associated PDF for any configuration notes required by the workflow.
 
-## Contributing
+## Notes
 
-- If you have updated workflows, export the JSON and add it alongside the existing files.
-- Keep PDF guides in PDF or source formats in `assets/` if you want to version documentation sources.
-
-## License
-
-No license file detected. Add a `LICENSE` if you intend to make this project open-source.
-
----
-
-If you'd like, I can:
-- add a simple `README` badge for the repo (GitHub-specific),
-- create a `LICENSE` file template, or
-- commit and open a PR with the new `README.md`.
+- Files are provided as-is. The JSON files are n8n workflow exports; the PDFs are documentation/supporting material.
+- No license file is present in the repository.
